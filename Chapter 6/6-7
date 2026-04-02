@@ -1,0 +1,8 @@
+- alert: ModelAccuracyDrop
+  expr: model_accuracy < 0.85
+  for: 5m
+  labels:
+    severity: critical
+  annotations:
+    summary: "Model accuracy is below the acceptable threshold"
+    description: "The model accuracy has dropped below 85% for the last 5 minutes. Immediate investigation is required."

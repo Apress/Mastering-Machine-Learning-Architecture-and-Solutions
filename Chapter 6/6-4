@@ -1,0 +1,5 @@
+# Running Docker Compose
+docker-compose up
+
+#Stopping Docker Compose
+docker-compose down

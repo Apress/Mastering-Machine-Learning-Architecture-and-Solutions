@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the Docker image...'
+                sh 'docker build -t ml-model-api .'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'pytest tests/'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to Kubernetes...'
+                sh 'kubectl apply -f deployment.yaml'
+            }
+        }
+    }
+}
